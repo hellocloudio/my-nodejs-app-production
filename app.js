@@ -11,6 +11,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// add pingcheck
+let pingcheck = new health.PingCheck("kubernetes.io");
+healthcheck.registerLivenessCheck(pingcheck);
+
 // add healthcheck endpoint 'live'
 app.use('/live', health.LivenessEndpoint(healthcheck))
 
