@@ -1,3 +1,8 @@
+var zipkin = require('appmetrics-zipkin')({
+  host: 'localhost',
+  port: 9411,
+  serviceName: "my-nodejs-app"
+});
 var prometheus = require('appmetrics-prometheus').attach();
 
 var createError = require('http-errors');
