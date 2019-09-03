@@ -16,7 +16,8 @@ let pingcheck = new health.PingCheck("kubernetes.io");
 healthcheck.registerLivenessCheck(pingcheck);
 
 // add healthcheck endpoint 'live'
-app.use('/live', health.LivenessEndpoint(healthcheck))
+app.use('/live', health.LivenessEndpoint(healthcheck));
+app.use('/ready', health.ReadinessEndpoint(healthcheck));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
