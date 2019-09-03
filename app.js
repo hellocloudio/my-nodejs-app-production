@@ -15,8 +15,10 @@ var app = express();
 let pingcheck = new health.PingCheck("kubernetes.io");
 healthcheck.registerLivenessCheck(pingcheck);
 
-// add healthcheck endpoint 'live'
+// add liveness healthcheck endpoint '/live'
 app.use('/live', health.LivenessEndpoint(healthcheck));
+
+// add readiness healthcheck endpoint '/ready'
 app.use('/ready', health.ReadinessEndpoint(healthcheck));
 
 // view engine setup
