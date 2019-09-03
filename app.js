@@ -13,7 +13,7 @@ var app = express();
 
 // add pingcheck
 let pingcheck = new health.PingCheck("kubernetes.io");
-healthcheck.registerLivenessCheck(pingcheck);
+healthcheck.registerReadinessCheck(pingcheck);
 
 // add liveness healthcheck endpoint '/live'
 app.use('/live', health.LivenessEndpoint(healthcheck));
