@@ -1,7 +1,7 @@
 var zipkin = require('appmetrics-zipkin')({
   host: 'jaeger-collector.jaeger.svc.cluster.local',
   port: 9411,
-  serviceName: "my-nodejs-app"
+  serviceName: "my-nodejs-app-production-service"
 });
 var prometheus = require('appmetrics-prometheus').attach();
 
